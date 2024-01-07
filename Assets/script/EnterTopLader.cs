@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnterTopLader : MonoBehaviour
 {
     [SerializeField]
-    private PlayerControler controller;
+    private PlayerController controller;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimationManager : MonoBehaviour
 {
     [SerializeField]
-    PlayerControler pC;
+    PlayerController pC;
     [SerializeField]
     PlayerInput pI;
     [SerializeField]
@@ -25,6 +25,7 @@ public class PlayerAnimationManager : MonoBehaviour
     {
 
         animator.SetFloat("move", Mathf.Abs(pI.GettInfoDirection().x));
+        //print("aqui" + pC.getInfoCollision().isClimbingLader);
 
         animator.SetBool("on clim", pC.getInfoCollision().isClimbingLader);
 

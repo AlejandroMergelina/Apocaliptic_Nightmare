@@ -4,16 +4,18 @@ using UnityEngine;
 
 public abstract class SecundayGun : Guns
 {
-    
-    public int maxAmmo; // encapsular
-    
-    protected int currentAmmo { get; set; }
+    [SerializeField]
+    private int maxAmmo; // encapsular
+    [SerializeField]
+    protected int currentAmmo;
+    public int CurrentAmmo { get => currentAmmo;}
 
     public Transform[] shootDirection; // encapsular
 
     public GameObject gunPrefab; // encapsular
 
     protected GunManager manager;
+
 
     protected virtual void Start()
     {
@@ -27,7 +29,7 @@ public abstract class SecundayGun : Guns
     protected override void OnActivate()
     {
 
-        if (currentAmmo > 0)
+        if (currentAmmo >= 0)
         {
             currentAmmo--;
 

@@ -8,7 +8,7 @@ public abstract class Health : MonoBehaviour
     private float maxHealth;
     private float currenHealth;
     
-    void Start()
+    protected virtual void Start()
     {
         currenHealth = maxHealth;
     }
@@ -22,7 +22,7 @@ public abstract class Health : MonoBehaviour
 
     }
 
-    public void LoseHealth(float healthMinus)
+    public virtual void LoseHealth(float healthMinus)
     {
 
         currenHealth -= healthMinus;

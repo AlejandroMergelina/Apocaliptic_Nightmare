@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Guns : MonoBehaviour
 {
+    [SerializeField]
+    protected int iD;
+    public int ID { get => iD;}
+
     public float maxCooldownTime = 1f; // encapsular
     private float cooldownTime;
 
@@ -14,7 +18,6 @@ public abstract class Guns : MonoBehaviour
     public float damage = 3;
 
     public bool isReady => cooldownTime >= maxCooldownTime;
-
 
 
     protected void Awake()

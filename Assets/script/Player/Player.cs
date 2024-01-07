@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (PlayerControler))]
+[RequireComponent(typeof (PlayerController))]
 
 public class Player : MonoBehaviour
 {
@@ -18,16 +18,22 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector3 velocity;
 
-    private PlayerControler controller;
+    private PlayerController controller;
+    public PlayerController Controller { get => controller;}
 
     private Vector2 directionalInput;
 
     [SerializeField]
-    private Collider2D collisionTopLadert;
+    private float coyoteTime;
+    [SerializeField]
+    private float coyoteTimer;
+
+    //[SerializeField]
+    //private Collider2D collisionTopLadert;
 
     void Start()
     {
-        controller = GetComponent<PlayerControler>();
+        controller = GetComponent<PlayerController>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -40,53 +46,67 @@ public class Player : MonoBehaviour
 
         CalculateVelocity();
 
-        if (controller.getInfoCollision().canClimbingLader && directionalInput.y != 0)
-        {
 
-            controller.SetInfoCollisionClimbingLader(true);
+        if (Controller.getInfoCollision().below == false)
+        {
             
-        }
-
-        
-
-        if (controller.getInfoCollision().below && directionalInput.y == -1)
-        {
-
-            controller.SetInfoCollisionClimbingLader(false);
-
-        }
-
-        if (controller.getInfoCollision().canDownLader && directionalInput.y < 0)
-        {
-
-            controller.SetInfoCollisioIsTryingDonwLader(true);
+            coyoteTimer -= Time.deltaTime;
 
         }
         else
         {
 
-            controller.SetInfoCollisioIsTryingDonwLader(false);
+            coyoteTimer = coyoteTime;
 
         }
 
-        if (controller.getInfoCollision().isClimbingLader)
+        if (controller.getInfoCollision().canClimbingLader && directionalInput.y != 0)
+        {
+
+            Controller.SetInfoCollisionClimbingLader(true);
+            
+        }
+
+        
+
+        if (Controller.getInfoCollision().below && directionalInput.y == -1)
+        {
+
+            Controller.SetInfoCollisionClimbingLader(false);
+
+        }
+
+        if (Controller.getInfoCollision().canDownLader && directionalInput.y < 0)
+        {
+
+            Controller.SetInfoCollisioIsTryingDonwLader(true);
+
+        }
+        else
+        {
+
+            Controller.SetInfoCollisioIsTryingDonwLader(false);
+
+        }
+
+        if (Controller.getInfoCollision().isClimbingLader)
         {
 
             velocity.y = directionalInput.y * moveSpeed;
             velocity.x = 0;
 
 
-            controller.Move(velocity * Time.deltaTime);
+            Controller.Move(velocity * Time.deltaTime);
             velocity.y = 0;
         }
         else
         {
-            controller.Move(velocity * Time.deltaTime);
-            if (controller.getInfoCollision().above || controller.getInfoCollision().below)
+            Controller.Move(velocity * Time.deltaTime);
+            if (Controller.getInfoCollision().above || Controller.getInfoCollision().below)
             {
-                if (controller.getInfoCollision().slidingDownMaxSlope)
+                if (Controller.getInfoCollision().slidingDownMaxSlope)
                 {
-                    velocity.y += controller.getInfoCollision().slopeNormal.y * -gravity * Time.deltaTime;
+                    velocity.y += Controller.getInfoCollision().slopeNormal.y * -gravity * Time.deltaTime;
                 }
                 else
                 {
@@ -108,16 +128,16 @@ public class Player : MonoBehaviour
     public void OnJumpInput()
     {
 
-        if (controller.getInfoCollision().below)
+        if (coyoteTimer > 0)
         {
-            if (controller.getInfoCollision().slidingDownMaxSlope)
+            if (Controller.getInfoCollision().slidingDownMaxSlope)
             {
                 
-                if (directionalInput.x != -Mathf.Sign(controller.getInfoCollision().slopeNormal.x))
+                if (directionalInput.x != -Mathf.Sign(Controller.getInfoCollision().slopeNormal.x))
                 {
 
-                    velocity.y = jumpVelocity * controller.getInfoCollision().slopeNormal.y;
-                    velocity.x = jumpVelocity * controller.getInfoCollision().slopeNormal.x;
+                    velocity.y = jumpVelocity * Controller.getInfoCollision().slopeNormal.y;
+                    velocity.x = jumpVelocity * Controller.getInfoCollision().slopeNormal.x;
 
                 }
 

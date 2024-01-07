@@ -80,10 +80,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6255f68ff7d428145a4c9a84e1caa2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iD: 1
   maxCooldownTime: 0.25
   bulletsPerShoot: 5
   damage: 3
   maxAmmo: 2
+  currentAmmo: 2
   shootDirection:
   - {fileID: 2629462525243252471}
   - {fileID: 2629462525502936140}

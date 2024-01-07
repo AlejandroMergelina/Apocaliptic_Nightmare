@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 8164509287362462245}
   - component: {fileID: 2575584571250654696}
   - component: {fileID: 8164509287362462252}
-  - component: {fileID: 8164509287362462247}
   - component: {fileID: 8164509287362462246}
   - component: {fileID: 8164509287362462249}
   - component: {fileID: 8164509287362462250}
@@ -53,6 +52,7 @@ GameObject:
   - component: {fileID: 2039924437}
   - component: {fileID: 6542381728532183927}
   - component: {fileID: 1099334626}
+  - component: {fileID: 5709845505060070385}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -149,23 +149,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8164509287362462247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164509287362462239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd788d80a4960ae47a260a33cb026a5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 2560
-  collidera: {fileID: 0}
-  maxSlopeAngle: 55
 --- !u!114 &8164509287362462246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +165,8 @@ MonoBehaviour:
   timeToJumpApex: 0.2
   moveSpeed: 6
   velocity: {x: 0, y: 0, z: 0}
-  collisionTopLadert: {fileID: 6582714313292640006, guid: 42747c4a529b11e47aa88fe344f74a45, type: 3}
+  coyoteTime: 0.05
+  coyoteTimer: 0
 --- !u!114 &8164509287362462249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +194,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
-  collidera: {fileID: 0}
+  Collider: {fileID: 0}
 --- !u!114 &8164509287362462251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +210,7 @@ MonoBehaviour:
   CurrentGuns: {fileID: 1556528654262908192, guid: 40872c2fcb25f2b4a8bec76f50b28756, type: 3}
   gunHolder: {fileID: 8164509286870758994}
   gameController: {fileID: 0}
+  onShoot: 0
 --- !u!114 &-4589905023549260256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +229,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameController: {fileID: 0}
+  invulnerabilityTime: 1
+  invulnerabilityTimer: 0
+  spriteRenderer: {fileID: 2575584571250654696}
+  blinkTime: 0.1
+  blinkTimer: 0
 --- !u!114 &8305679768421432835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,10 +305,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0276810637a79f54c8e2d933f8733df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pC: {fileID: 8164509287362462247}
+  pC: {fileID: 5709845505060070385}
   pI: {fileID: 8164509287362462249}
   animator: {fileID: 2039924437}
   pH: {fileID: -4589905023549260256}
+  gM: {fileID: 8164509287362462251}
+--- !u!114 &5709845505060070385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164509287362462239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ec0e01d137ed149901bfae4b8650fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2560
+  Collider: {fileID: 0}
+  maxSlopeAngle: 55
 --- !u!1001 &8164509286209740339
 PrefabInstance:
   m_ObjectHideFlags: 0

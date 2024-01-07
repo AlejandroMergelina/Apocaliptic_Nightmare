@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 
 public class RaycastController : MonoBehaviour
 {
@@ -21,20 +21,27 @@ public class RaycastController : MonoBehaviour
     protected float verticalRaySpacing;
 
     [HideInInspector]
-    public BoxCollider2D collidera;
+    public Collider2D Collider;
     public RaycastOrigins raycastOrigins;
+
+    public virtual void Awake()
+    {
+        Collider = GetComponent<Collider2D>();
+        
+    }
 
     public virtual void Start()
     {
-        collidera = GetComponent<BoxCollider2D>();
+
+
         CalculateRaySpacing();
-        
+
     }
 
     public void UpdateRaycastOrigins()
     {
 
-        Bounds bounds = collidera.bounds;
+        Bounds bounds = Collider.bounds;
         bounds.Expand(skinWidh * -2);
 
         raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
@@ -46,7 +53,7 @@ public class RaycastController : MonoBehaviour
     public void CalculateRaySpacing()
     {
 
-        Bounds bounds = collidera.bounds;
+        Bounds bounds = Collider.bounds;
         bounds.Expand(skinWidh * -2);
 
         float boundsWidth = bounds.size.x;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GunManager : MonoBehaviour
 {
@@ -11,16 +12,18 @@ public class GunManager : MonoBehaviour
 
     private bool haveAGun = false;
 
-    PlayerControler controller;
+    PlayerController controller;
 
     [SerializeField]
     private GameControllerLevel gameController;
     [SerializeField]
     private bool onShoot;
 
+    public event Action<Guns> onAction;
+
     private void Awake()
     {
-        controller = GetComponent<PlayerControler>();
+        controller = GetComponent<PlayerController>();
 
         Guns[] guns = GetComponentsInChildren<Guns>();
         foreach(Guns g in guns)
@@ -43,6 +46,7 @@ public class GunManager : MonoBehaviour
             CurrentGuns.Activate();
             StartCoroutine(ResetOnShoot());
             onShoot = true;
+            onAction?.Invoke(CurrentGuns);
         }
 
     }
@@ -64,7 +68,7 @@ public class GunManager : MonoBehaviour
         CurrentGuns = guns;
 
         haveAGun = true;
-
+        onAction?.Invoke(CurrentGuns);
     }
 
     public bool GetInfoOnShoot()

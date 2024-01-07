@@ -109,10 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c262f7467cc10d4ca69d037c798a7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iD: 2
   maxCooldownTime: 1
   bulletsPerShoot: 3
   damage: 1
   maxAmmo: 3
+  currentAmmo: 3
   shootDirection:
   - {fileID: 4622363916178806470}
   - {fileID: 4622363915869085168}

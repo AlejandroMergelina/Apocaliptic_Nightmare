@@ -9,7 +9,7 @@ public class TrasparenCollision : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private PlayerControler controller;
+    private PlayerController controller;
 
     private Collider2D collision;
 

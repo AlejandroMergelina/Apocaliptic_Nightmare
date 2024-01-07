@@ -12,12 +12,10 @@ public class GameControllerLevel : GameController
     private int maxNEemys;
 
     [SerializeField]
-    private RadioSpawnDetection detection;
-
-    [SerializeField]
     private Animator animator;
 
-    
+    [SerializeField]
+    private GameObject menuWin;
 
     protected override void Start()
     {
@@ -60,9 +58,11 @@ public class GameControllerLevel : GameController
         print("check" + currentNEnemys);
         if (currentNEnemys <= 0)
         {
+            menuWin.SetActive(true);
 
-            detection.DetectSpawn(_enemyDeathPosition, 10);
+            Pause(true);
 
+            Save();
         }
 
     }

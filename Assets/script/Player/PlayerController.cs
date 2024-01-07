@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class PlayerControler : RaycastController
+public class PlayerController : RaycastController
 {
     [SerializeField]
     private float maxSlopeAngle = 55f;
@@ -15,7 +15,6 @@ public class PlayerControler : RaycastController
     {
 
         base.Start();
-
 
     }
 
@@ -349,7 +348,7 @@ public class PlayerControler : RaycastController
 
 
 
-            slopeAngleOld = slopeAngle;
+        slopeAngleOld = slopeAngle;
             slopeAngle = 0;
 
         }

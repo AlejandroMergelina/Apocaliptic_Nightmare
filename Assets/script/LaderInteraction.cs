@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaderInteraction : MonoBehaviour
 {
-    private PlayerControler controller;
+    private PlayerController controller;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -12,7 +12,7 @@ public class LaderInteraction : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             
-            controller = collision.GetComponent<PlayerControler>();
+            controller = collision.GetComponent<PlayerController>();
 
             controller.SetInfoCollisionCanClimbingLader(true);
 

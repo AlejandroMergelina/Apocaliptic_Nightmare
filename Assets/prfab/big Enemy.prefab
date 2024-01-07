@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6614630041093150495}
   - component: {fileID: 3561205796408727817}
   - component: {fileID: 6614630041093150492}
-  - component: {fileID: 2323940890261402270}
+  - component: {fileID: 3881698568589842144}
   m_Layer: 13
   m_Name: big Enemy
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6614630041093150493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.21, y: -0.15, z: 0}
+  m_LocalPosition: {x: -5.175, y: -0.126, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 512
-  collidera: {fileID: 0}
+  Collider: {fileID: 0}
 --- !u!114 &6614630041093150495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 4
-  timeToJumpApex: 0.4
-  moveSpeed: 4
+  timeToJumpApex: 1.5
+  moveSpeed: 1
   damage: 1
   nValue: 1
   enemyPrefab: {fileID: 7575928964721118582, guid: 988fed503b9e469418b38e51dbbcf7d3, type: 3}
@@ -161,8 +161,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2323940890261402270
-BoxCollider2D:
+--- !u!58 &3881698568589842144
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -174,16 +174,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.09354186}
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
+  m_Radius: 0.80122364
