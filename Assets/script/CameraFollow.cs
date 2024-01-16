@@ -29,7 +29,6 @@ public class CameraFollow : MonoBehaviour
 
     private bool lookAheadStopped;
 
-
     private void Start()
     {
 
@@ -73,6 +72,7 @@ public class CameraFollow : MonoBehaviour
         focusPosition += Vector2.right * currentLookAheadX;
         transform.position = new Vector3(focusPosition.x, focusPosition.y, transform.position.z);
     }
+
     private void OnDrawGizmos()
     {
 

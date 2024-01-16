@@ -45,9 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e027737a9c7ba5439fdf01e1f87f742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iD: 0
   maxCooldownTime: 1
   bulletsPerShoot: 1
   damage: 1
+  audioClip: {fileID: 8300000, guid: 45b7be62bd896e641b87a59fd55431ef, type: 3}
+  shakeDistance: 0.01
+  shakeTime: 0.1
   shootDirection:
   - {fileID: 4198869508358108239}
   projectilePrefab: {fileID: 891479140822540479, guid: 70e93a982102d9844ac1f881b0a31a50, type: 3}

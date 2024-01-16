@@ -113,6 +113,9 @@ MonoBehaviour:
   maxCooldownTime: 1
   bulletsPerShoot: 3
   damage: 1
+  audioClip: {fileID: 8300000, guid: 81aff0ff59033c44ab0cc5d02cf443ea, type: 3}
+  shakeDistance: 0.1
+  shakeTime: 0.1
   maxAmmo: 3
   currentAmmo: 3
   shootDirection:

@@ -58,6 +58,13 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void PlayOneAudio(AudioClip audio)
+    {
+
+        AudioManager.Instance.PlaySound(audio);
+
+    }
+
     public void Pause(bool state)
     {
 

@@ -36,6 +36,7 @@ public abstract class SecundayGun : Guns
             for (int i = 0; i < bulletsPerShoot; i++)
             {
 
+                base.OnActivate();
                 ShootProjectile(shootDirection[i]);
 
 

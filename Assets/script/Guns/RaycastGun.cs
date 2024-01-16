@@ -15,6 +15,9 @@ public class RaycastGun : SecundayGun
 
     [SerializeField]
     private LayerMask collisionLayerMask;
+
+    
+
     protected override void Start()
     {
 
@@ -42,9 +45,8 @@ public class RaycastGun : SecundayGun
 
     protected override void ShootProjectile(Transform direction)
     {
-
+        cShake.Shake(shakeDistance, shakeTime);
         RaycastHit2D hit = Physics2D.Raycast(direction.position, direction.up, range,collisionLayerMask);
-
         Vector3 _range = direction.position + direction.up * range;
 
         if (hit)

@@ -6,11 +6,11 @@ public class Proyectile : MonoBehaviour
 {
 
     [SerializeField]
-    float velocity = 10;
+    protected float velocity;
 
     public Guns gun;
-
-    private float time = 3; 
+    [SerializeField]
+    protected float time = 3; 
 
     void Update()
     {
@@ -28,7 +28,7 @@ public class Proyectile : MonoBehaviour
 
     }
 
-    void AtoDeath()
+    protected virtual void AtoDeath()
     {
         time -= Time.deltaTime;
 
@@ -41,9 +41,8 @@ public class Proyectile : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
 
         if (collision.gameObject.tag == "Enemy")
         {
@@ -64,6 +63,7 @@ public class Proyectile : MonoBehaviour
 
             }
         }
+        Destroy(gameObject);
     }
 
 }

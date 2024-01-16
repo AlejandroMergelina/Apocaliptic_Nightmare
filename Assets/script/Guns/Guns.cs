@@ -20,6 +20,14 @@ public abstract class Guns : MonoBehaviour
     public bool isReady => cooldownTime >= maxCooldownTime;
 
 
+    protected CameraShake cShake;
+    public CameraShake CShake {set => cShake = value; }
+    [SerializeField]
+    private AudioClip audioClip;
+
+    [SerializeField]
+    protected float shakeDistance, shakeTime;
+
     protected void Awake()
     {
 
@@ -66,6 +74,11 @@ public abstract class Guns : MonoBehaviour
 
     }
 
-    protected abstract void OnActivate();
+    protected virtual void OnActivate()
+    {
+
+        AudioManager.Instance.PlaySound(audioClip);
+
+    }
 
 }

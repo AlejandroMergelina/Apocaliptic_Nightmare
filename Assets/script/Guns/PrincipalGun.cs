@@ -12,7 +12,7 @@ public class PrincipalGun : Guns
     {
         for (int i = 0; i < bulletsPerShoot; i++)
         {
-
+            base.OnActivate();
             ShootProjectile(shootDirection[i]);
 
 
@@ -22,7 +22,7 @@ public class PrincipalGun : Guns
     protected void ShootProjectile(Transform _position)
     {
 
-        
+        cShake.Shake(shakeDistance, shakeTime);
 
         GameObject bullet = Instantiate(projectilePrefab, _position.position, _position.rotation);
 

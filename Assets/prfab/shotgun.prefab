@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2629462525041883936}
-  - component: {fileID: 2629462525041883937}
+  - component: {fileID: 6141622872164904648}
   m_Layer: 0
   m_Name: shotgun
   m_TagString: Untagged
@@ -68,7 +68,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2629462525041883937
+--- !u!114 &6141622872164904648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,6 +84,9 @@ MonoBehaviour:
   maxCooldownTime: 0.25
   bulletsPerShoot: 5
   damage: 3
+  audioClip: {fileID: 8300000, guid: f27047e16bd7e074482f3fc91bf62de8, type: 3}
+  shakeDistance: 0.2
+  shakeTime: 0.2
   maxAmmo: 2
   currentAmmo: 2
   shootDirection:
@@ -93,11 +96,11 @@ MonoBehaviour:
   - {fileID: 3219044839125945795}
   - {fileID: 1691231893597000673}
   gunPrefab: {fileID: 1512020085490561840, guid: 40872c2fcb25f2b4a8bec76f50b28756, type: 3}
-  range: 4
+  range: 2
   linePrefab: {fileID: 6926276324949785547, guid: 5f0c72b1532d3864ebf84ad11b6f80c7, type: 3}
   collisionLayerMask:
     serializedVersion: 2
-    m_Bits: 8704
+    m_Bits: 2147483647
 --- !u!1 &2629462525243252468
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using System;
 public class GunManager : MonoBehaviour
 {
 
-    public Guns CurrentGuns;
+    public Guns currentGuns;
 
     public Transform gunHolder;
 
@@ -18,6 +18,8 @@ public class GunManager : MonoBehaviour
     private GameControllerLevel gameController;
     [SerializeField]
     private bool onShoot;
+    [SerializeField]
+    private CameraShake cShake;
 
     public event Action<Guns> onAction;
 
@@ -40,13 +42,13 @@ public class GunManager : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.E) && controller.getInfoCollision().below && gameController.GetPause() == false)
+        if (Input.GetKeyDown(KeyCode.E) && controller.getInfoCollision().below && gameController.GetPause() == false/*&& currentGuns.isReady*/)
         {
 
-            CurrentGuns.Activate();
+            currentGuns.Activate();
             StartCoroutine(ResetOnShoot());
             onShoot = true;
-            onAction?.Invoke(CurrentGuns);
+            onAction?.Invoke(currentGuns);
         }
 
     }
@@ -56,7 +58,7 @@ public class GunManager : MonoBehaviour
         if (haveAGun)
         {
 
-            CurrentGuns.AtoDestroy();
+            currentGuns.AtoDestroy();
 
         }
         
@@ -65,10 +67,10 @@ public class GunManager : MonoBehaviour
         guns.transform.rotation = gunHolder.rotation;
         guns.transform.SetParent(gunHolder);
 
-        CurrentGuns = guns;
-
+        currentGuns = guns;
+        currentGuns.CShake = cShake;
         haveAGun = true;
-        onAction?.Invoke(CurrentGuns);
+        onAction?.Invoke(currentGuns);
     }
 
     public bool GetInfoOnShoot()
