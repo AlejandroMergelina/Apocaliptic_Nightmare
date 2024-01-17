@@ -31,6 +31,13 @@ public class Player : MonoBehaviour
     //[SerializeField]
     //private Collider2D collisionTopLadert;
 
+    void PlaySound(AudioClip clip)
+    {
+
+        AudioManager.Instance.PlaySound(clip);
+
+    }
+
     void Start()
     {
         controller = GetComponent<PlayerController>();
